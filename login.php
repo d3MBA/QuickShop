@@ -9,9 +9,9 @@
 <h2>Log in</h2>
 
 <p><strong>Email address:</strong></p>
-<input type="text" id="emailAddress" placeholder="Enter your email address...">
+<input type="email" id="emailAddress" placeholder="Enter your email address...">
 <p><strong>Password:</strong></p>
-<input type="text" id="password" placeholder="Enter your password...">
+<input type="password" id="password" placeholder="Enter your password...">
 
 <br><br>
 <button>Log in</button>
