@@ -18,7 +18,7 @@
 
 
 <br><br>
-<a href="signup_page.php">No account yet?</a>
+<a href="register.php">No account yet?</a>
 
 
 </body>
