@@ -13,9 +13,9 @@
 <p><strong>Last name:</strong></p>
 <input type="text" id="lastName" placeholder="Enter your last name...">
 <p><strong>Email address:</strong></p>
-<input type="text" id="emailAddress" placeholder="Enter your email address...">
+<input type="email" id="emailAddress" placeholder="Enter your email address...">
 <p><strong>Phone number:</strong></p>
-<input type="text" id="phoneNumber" placeholder="Enter your phone number...">
+<input type="number" id="phoneNumber" placeholder="Enter your phone number...">
 <p><strong>Create password:</strong></p>
 <input type="password" id="password" placeholder="Enter your password...">
 <p><strong>Confirm password:</strong></p>
@@ -26,8 +26,7 @@
 
 
 <br><br>
-<a href="login_page.php">Already registered??</a>
-
+<a href="login.php">Already registered?</a>
 
 </body>
 </html>
