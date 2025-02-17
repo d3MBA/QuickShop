@@ -12,5 +12,8 @@
 <p><strong>Price:</strong> $0.99</p>
 <p><strong>Description:</strong> Fresh, juicy apples.</p>
 
+<br><br>
+<a href="index.php">Back to Homepage</a>
+
 </body>
 </html>
