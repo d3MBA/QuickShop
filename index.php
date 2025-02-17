@@ -28,7 +28,7 @@ $bestsellers = [
         $imagePath = "images/products/" . strtolower($bestsellers[$i]["name"]) . ".png"; // strtolower converts string to lowercase
 
         echo "<h3>" . $bestsellers[$i]["name"] . "</h3>";
-        echo "<img src='" . $imagePath . "' alt='" . $bestsellers[$i]["name"] . "' width='150'>";
+        echo "<a href='product.php'><img src='" . $imagePath . "' alt='" . $bestsellers[$i]["name"] . "' width='150'></a>";
         echo "<p>Price: $" . number_format($bestsellers[$i]["price"], 2) . "</p>"; // number_format format number to 2 decimal placees
         echo "<p>Description: " . $bestsellers[$i]["description"] . "</p>";
     }
