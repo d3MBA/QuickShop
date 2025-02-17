@@ -8,13 +8,11 @@
     ];
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>QucikShop - Online Grocery</title>
-
     </head>
     <body>
     <h2>Top 5 Bestselling Products</h2>
@@ -27,6 +25,7 @@
             // Loop to display bestsellers
             for ($i = 0; $i < count($bestsellers); $i++) {
                 echo "<h3>" . $bestsellers[$i]["name"] . "</h3>";
+                echo "<img src='" . $bestsellers["image"] . "' alt='" . $bestsellers["name"] . "' width='150'>";
                 echo "<p>Price: $" . $bestsellers[$i]["price"] . "</p>";
                 echo "<p>Description: $" . $bestsellers[$i]["description"] . "</p>";
             }
