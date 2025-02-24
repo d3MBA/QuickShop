@@ -1,5 +1,5 @@
 <?php
-include('db.php'); // include database connection file
+include 'db.php'; // include database connection file
 
 // query database to fetch all products
 $query = "SELECT * FROM products";
@@ -15,12 +15,17 @@ $result = $conn->query($query);
 </head>
 <body>
 
-<!--Navigation bar -->
+<!-- Navigation bar -->
 <nav>
-    <a href="index.php">Home</a>
-    <a href="login.php">Log in</a>
-    <a href="register.php">Register</a>
+    <div class="logo">QuickShop</div>
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="order_history.php">Orders</a></li>
+        <li><a href="login.php">Log in</a></li>
+        <li><a href="register.php">Register</a></li>
+    </ul>
 </nav>
+
 
 <h2>Top 5 Bestselling Products</h2>
 
