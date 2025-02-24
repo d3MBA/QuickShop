@@ -1,13 +1,14 @@
 <?php
     $host = "localhost";
-    $user = "root"; // Change this if you have a different MySQL user
-    $password = ""; // Set your MySQL password if needed
+    $user = "root";
+    $password = "";
     $dbname = "quickshop";
+    $port = 3308;
 
-    // Create connection
-    $conn = new mysqli($host, $user, $password, $dbname);
+    // create connection
+    $conn = new mysqli($host, $user, $password, $dbname, $port = 3308);
 
-    // Check connection
+    // check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
