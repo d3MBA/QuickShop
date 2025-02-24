@@ -10,7 +10,8 @@ $result = $conn->query($query);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QuickShop - Online Grocery</title>
+    <title>QuickShop - Online Grocery Shop</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@ $result = $conn->query($query);
 
 <h2>Top 5 Bestselling Products</h2>
 
-<!-- Search Bar -->
+<!-- NEW COMMENT -->
 <input type="text" id="searchInput" placeholder="Search for a product...">
 
 <!-- List products -->
@@ -38,7 +39,7 @@ $result = $conn->query($query);
 
             // display product details
             echo "<h3>" . $row["name"] . "</h3>";
-            echo "<a href='product.php?id=" . $row["id"] . "'><img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'></a>";
+            echo "<a href='product.php?product_id=" . $row["product_id"] . "'><img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'></a>";
             echo "<p>Price: $" . number_format($row["price"], 2) . "</p>";
             // add button "add to trolley"
             echo "<button>Add to Trolley</button>";
