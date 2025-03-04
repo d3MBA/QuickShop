@@ -33,7 +33,7 @@
     <button>Register</button>
 
     <br><br>
-    <a href="login.php">Already registered?</a>
+    <a href="login.php">Already registered? Log In</a>
 </div>
 
 </body>
