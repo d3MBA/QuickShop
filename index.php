@@ -27,7 +27,7 @@ $result = $conn->query($query);
 </nav>
 
 
-<h2>Top 5 Bestselling Products</h2>
+<h2>Bestselling Products</h2>
 
 <!-- NEW COMMENT -->
 <input type="text" id="searchInput" placeholder="Search for a product...">
@@ -44,7 +44,7 @@ $result = $conn->query($query);
 
             // display product details
             echo "<h3>" . $row["name"] . "</h3>";
-            echo "<a href='product.php?product_id=" . $row["product_id"] . "'><img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'></a>";
+            echo "<a href='productPage.php?product_id=" . $row["product_id"] . "'><img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'></a>";
             echo "<p>Price: $" . number_format($row["price"], 2) . "</p>";
             // add button "add to trolley"
             echo "<button>Add to Trolley</button>";
