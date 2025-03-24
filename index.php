@@ -33,24 +33,27 @@ $result = $conn->query($query);
 <input type="text" id="searchInput" placeholder="Search for a product...">
 
 <!-- List products -->
-<div>
+<div class="product-list">
     <?php
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $imagePath = "images/products/" . strtolower($row["name"]) . ".png";
 
+            echo "<div class='product-box'>";
             echo "<h3>" . $row["name"] . "</h3>";
             echo "<a href='productPage.php?product_id=" . $row["product_id"] . "'>
                     <img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'>
                   </a>";
             echo "<p>Price: $" . number_format($row["price"], 2) . "</p>";
-            echo "<button>Add to Trolley</button>";
+            echo "<button class='add-to-cart'>Add to Trolley</button>";
+            echo "</div>";
         }
     } else {
         echo "No products found.";
     }
     ?>
 </div>
+
 
 <!-- Footer -->
 <footer style="background-color: #333; color: white; padding: 40px 20px; margin-top: 40px;">
