@@ -44,7 +44,7 @@ $result = $conn->query($query);
             echo "<a href='productPage.php?product_id=" . $row["product_id"] . "'>
                     <img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'>
                   </a>";
-            echo "<p>Price: $" . number_format($row["price"], 2) . "</p>";
+            echo "<p>Price: €" . number_format($row["price"], 2) . "</p>";
             echo "<button class='add-to-cart'>Add to Trolley</button>";
             echo "</div>";
         }

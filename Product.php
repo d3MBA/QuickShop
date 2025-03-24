@@ -1,5 +1,7 @@
 <?php
 
+include 'db.php'; // database connection file
+
 class Product
 {
     public $product_id;
@@ -44,15 +46,5 @@ class Product
     {
         $this->stock = $product_id;
     }
-    public function displayProduct()
-    {
-        echo "<br>---";
-        echo "<br>Name: " . $this->getProductName($this->product_id);
-        echo "<br>Description: " . $this->getProductDescription($this->product_id);
-        echo "<br>Price: " . $this->getProductPrice($this->product_id);
-        echo "<br>Category: " . $this->getProductCategory($this->product_id);
-        echo "<br>Stock: " . $this->getProductStock();
-        echo "<br>Image: " . $this->getProductImage();
-        echo "<br>";
-    }
+
 }
