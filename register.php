@@ -61,5 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="login.php">Already registered? Log In</a>
 </div>
 
+
+<?php require_once 'template/footer.php';?>
+
 </body>
 </html>

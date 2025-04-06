@@ -60,5 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="register.php">No account yet?</a>
 </div>
 
+<?php require_once 'template/footer.php';?>
+
 </body>
 </html>

@@ -54,5 +54,7 @@ if (isset($_GET['product_id'])) {
     </div>
 </div>
 
+<?php require_once 'template/footer.php';?>
+
 </body>
 </html>
