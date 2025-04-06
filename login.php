@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'src/db.php';
 require_once 'User.php';
 
 $message = "";
@@ -10,30 +10,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "SELECT * FROM customers WHERE email = ? AND password = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $email, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt->execute([$email, $password]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result->num_rows === 1) {
-        $row = $result->fetch_assoc();
-
+    if ($result) {
         $user = new User();
-        $user->user_id = $row['customerID'];
-        $user->name = $row['name'];
-        $user->email = $row['email'];
-        $user->password = $row['password'];
-        $user->address = $row['address'];
-        $user->phoneNumber = $row['phone'];
+        $user->user_id = $result['customerID'];
+        $user->name = $result['name'];
+        $user->email = $result['email'];
+        $user->password = $result['password'];
+        $user->address = $result['address'];
+        $user->phoneNumber = $result['phone'];
 
         header("Location: index.php");
         exit;
     } else {
         $message = "<p style='color:red;'>Invalid email or password!</p>";
     }
-
-    $stmt->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
