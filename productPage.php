@@ -1,7 +1,6 @@
 <?php
-include 'db.php'; // database connection
+include 'src/db.php'; // connect to database
 
-// check if product_id is provided in URL
 if (isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
 
@@ -9,10 +8,9 @@ if (isset($_GET['product_id'])) {
     $query = "SELECT * FROM products WHERE product_id = $product_id";
     $result = $conn->query($query);
 
-    // check if product exists
-    if ($result->num_rows > 0) {
-        $product = $result->fetch_assoc();
-    } else {
+    $product = $result->fetch(PDO::FETCH_ASSOC);
+
+    if (!$product) {
         echo "Product not found";
         exit;
     }
@@ -21,6 +19,7 @@ if (isset($_GET['product_id'])) {
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

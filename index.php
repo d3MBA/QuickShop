@@ -1,5 +1,5 @@
 <?php
-include 'db.php'; // include database connection file
+include 'src/db.php'; // include database connection file
 
 // query database to fetch all products
 $query = "SELECT * FROM products";
@@ -35,8 +35,10 @@ $result = $conn->query($query);
 <!-- List products -->
 <div class="product-list">
     <?php
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+    $products = $result->fetchAll();
+
+    if ($products) {
+        foreach ($products as $row) {
             $imagePath = "images/products/" . strtolower($row["name"]) . ".png";
 
             echo "<div class='product-box'>";
@@ -44,7 +46,7 @@ $result = $conn->query($query);
             echo "<a href='productPage.php?product_id=" . $row["product_id"] . "'>
                     <img src='" . $imagePath . "' alt='" . $row["name"] . "' width='150'>
                   </a>";
-            echo "<p>Price: €" . number_format($row["price"], 2) . "</p>";
+            echo "<p>Price: €" . $row["price"] . "</p>";
             echo "<button class='add-to-cart'>Add to Trolley</button>";
             echo "</div>";
         }
@@ -53,6 +55,7 @@ $result = $conn->query($query);
     }
     ?>
 </div>
+
 
 
 <!-- Footer -->
