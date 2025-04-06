@@ -1,6 +1,6 @@
 <?php
 global $conn;
-include 'db.php'; // include database connection file
+include 'src/db.php'; // include database connection file
 
 // query database to fetch all products
 $query = "SELECT * FROM products";
@@ -17,16 +17,7 @@ $result = $conn->query($query);
 </head>
 <body>
 
-<!-- Navigation bar -->
-<nav>
-    <div class="logo">QuickShop</div>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="order_history.php">Orders</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="register.php">Register</a></li>
-    </ul>
-</nav>
+<?php require_once 'template/navigation_bar.php';?>
 
 <!-- Order History Content -->
 <div id="order-history" class="container">

@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
+<?php require_once 'template/navigation_bar.php';?>
+
 <div class="container">
     <h2>Register</h2>
     <form action="" method="POST">

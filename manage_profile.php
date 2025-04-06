@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'src/db.php';
 require_once 'User.php';
 
 $user = new User();
@@ -90,6 +90,8 @@ if (isset($_POST['changePassword'])) {
     <br>
     <a href="index.php">Back to Home</a>
 </div>
+
+<?php require_once 'template/footer.php';?>
 
 </body>
 </html>
