@@ -30,16 +30,7 @@ if (isset($_GET['product_id'])) {
 </head>
 <body>
 
-<!-- Navigation bar -->
-<nav>
-    <div class="logo">QuickShop</div>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="categories.php">Categories</a></li>
-        <li><a href="order_history.php">Purchase History</a></li>
-        <li><a href="login.php">Log in</a></li>
-    </ul>
-</nav>
+<?php require_once 'template/navigation_bar.php';?>
 
 <h2>Product description page</h2>
 
