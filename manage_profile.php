@@ -2,22 +2,26 @@
 require_once 'src/db.php';
 require_once 'User.php';
 
+session_start();
+
 $user = new User();
-$user->email = "";
-
-// load current info
-$sql = "SELECT * FROM customers WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $user->email);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-
-$user->name = $row['name'];
-$user->address = $row['address'];
-$user->phoneNumber = $row['phone'];
+$user->email = $_SESSION['email'] ?? ''; // get logged in user email
 
 $message = "";
+
+// load current info
+if (!empty($user->email)) {
+    $sql = "SELECT * FROM customers WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$user->email]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($row) {
+        $user->name = $row['name'];
+        $user->address = $row['address'];
+        $user->phoneNumber = $row['phone'];
+    }
+}
 
 // handle address update
 if (isset($_POST['updateAddress'])) {
@@ -43,7 +47,6 @@ if (isset($_POST['changePassword'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +55,9 @@ if (isset($_POST['changePassword'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<?php require_once 'template/navigation_bar.php'; ?>
+
 
 <div class="container">
     <h2>Manage Profile</h2>
@@ -91,7 +97,7 @@ if (isset($_POST['changePassword'])) {
     <a href="index.php">Back to Home</a>
 </div>
 
-<?php require_once 'template/footer.php';?>
+<?php require_once 'template/footer.php'; ?>
 
 </body>
 </html>
