@@ -1,0 +1,1 @@
+{"version":1,"defects":{"UserTest::testUpdateAddress":8},"times":{"UserTest::testRegister":0.003,"UserTest::testUpdateAddress":0.012,"UserTest::testChangePasswordSuccess":0,"UserTest::testChangePasswordFailure":0}}
