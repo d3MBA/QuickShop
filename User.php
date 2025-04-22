@@ -7,12 +7,22 @@ class User {
     public $address;
     public $phoneNumber;
 
-    public function register($fullName, $email, $password, $address, $phone) {
+    public function register($fullName, $email, $password, $address, $phone, $confirmPassword) {
+        if ($password !== $confirmPassword) {
+            return "Passwords do not match.";
+        }
+
+        if (!preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
+            return "Password must have at least 1 capital letter and 1 number";
+        }
+
         $this->name = $fullName;
         $this->email = $email;
         $this->password = $password;
         $this->address = $address;
         $this->phoneNumber = $phone;
+
+        return "OK";
     }
 
     public function saveToDB($conn) {
