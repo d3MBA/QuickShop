@@ -1,0 +1,100 @@
+<?php
+session_start();
+require_once '../classes/User.php';
+
+require_once '../template/header.php';
+require_once '../template/nav.php';
+
+$name = $email = $phone = "";
+$msg  = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['name'])) {
+        $name = test_input($_POST['name']);
+    } else {
+        $name = '';
+    }
+    if (isset($_POST['email'])) {
+        $email = test_input($_POST['email']);
+    } else {
+        $email = '';
+    }
+
+    if (isset($_POST['pass'])) {
+        $pass = test_input($_POST['pass']);
+    } else {
+        $pass = '';
+    }
+
+    if (isset($_POST['confirm'])) {
+        $confirm = test_input($_POST['confirm']);
+    } else {
+        $confirm = '';
+    }
+    if (isset($_POST['phone'])) {
+        $phone = test_input($_POST['phone']);
+    } else {
+        $phone = '';
+    }
+
+
+    $user = new User();
+    $msg = $user->register($name, $email, $pass, $confirm, $phone);
+
+
+    if ($msg === "success") {
+        header('Location: login.php');
+        exit;
+    }
+}
+?>
+
+<!doctype html>
+<html>
+
+
+<head>
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+
+
+<h3>Register</h3>
+
+<?php if ($msg && $msg !== "success") echo "<div class='alert alert-danger'>$msg</div>"; ?>
+
+<form method="post" novalidate>
+    <div class="mb-2">
+        <input class="form-control" name="name" placeholder="Full Name" required value="<?php echo htmlspecialchars($name); ?>">
+    </div>
+
+    <div class="mb-2">
+        <input class="form-control" name="email" type="email" placeholder="Email" required value="<?php echo htmlspecialchars($email); ?>">
+    </div>
+
+    <div class="mb-2">
+        <input class="form-control" name="pass" type="password" placeholder="Password" required>
+    </div>
+
+    <div class="mb-2">
+        <input class="form-control" name="confirm" type="password" placeholder="Confirm Password" required>
+    </div>
+
+
+    <div class="mb-2">
+        <input class="form-control" name="phone" type="number" placeholder="Phone" value="<?php echo htmlspecialchars($phone); ?>">
+    </div>
+
+    <button class="btn btn-success">Register</button>
+    <a href="login.php" class="btn btn-link">Login</a>
+</form>
+
+
+    </body>
+</html>
+
+
+
+<?php require_once '../template/footer.php'; ?>

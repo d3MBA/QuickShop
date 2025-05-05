@@ -1,46 +1,49 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once 'User.php';
+require_once '../classes/User.php';
+
+
 
 class UserTest extends TestCase
-
 {
-    public function testRegister()
+    public function testRegisterSuccess()
     {
         $user = new User();
-        $user->register('TU Student', 'student@tudublin.ie', 'pass123', '123 Dublin', '123456789', 'pass123');
+        $email = 'student' . rand(1000, 9999) . '@tudublin.ie';
 
-        echo $password = $user->password;
-        echo $fullName = $user->name;
+        $result = $user->register('TU Student', $email,'Pass123', 'Pass123','123456789');
+        $this->assertEquals('success', $result);
+        echo "testRegisterSuccess passed\n";
+    }
 
-        $this->assertEquals('TU Student', $user->name);
-        $this->assertEquals('student@tudublin.ie', $user->email);
-        $this->assertEquals('pass123', $user->password);
-        $this->assertEquals('123 Dublin', $user->address);
-        $this->assertEquals('123456789', $user->phoneNumber);
+    public function testRegisterPasswordMismatch()
+    {
+        $user = new User();
+        $result = $user->register('TU Student', 'student@tudublin.ie','Pass123','WrongPass', '123456789');
 
-        echo "testRegister passed\n";
+        $this->assertEquals('Passwords do not match.', $result);
+        echo "testRegisterPasswordMismatch passed\n";
     }
 
 
-    public function testChangePasswordSuccess()
+    public function testRegisterInvalidPassword()
     {
         $user = new User();
-        $user->email = 'student@tudublin.ie';
-
-        $this->assertTrue(true);
-
-        echo "testChangePasswordSuccess passed\n";
+        $result = $user->register('TU Student', 'student@tudublin.ie','password','password','123456789');
+        $this->assertEquals('Password needs 1 capital letter and 1 number.', $result);
+        echo "testRegisterInvalidPassword passed\n";
     }
 
-    public function testChangePasswordFailure()
+
+
+    public function testLoginFail()
+
     {
         $user = new User();
-        $user->email = 'student@tudublin.ie';
+        $result = $user->login('wronguser@tudublin.ie', 'WrongPass');
 
-        $this->assertTrue(true);
-
-        echo "testChangePasswordFailure passed\n";
+        $this->assertFalse($result);
+        echo "testLoginFail passed\n";
     }
 }

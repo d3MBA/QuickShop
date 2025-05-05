@@ -1,33 +1,40 @@
-<!-- Footer -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<footer style="background-color: #333; color: white; padding: 40px 20px; margin-top: 40px;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: auto;">
-        <div>
-            <h3>About QuickShop</h3>
-            <p><a href="about.php" style="color: white;">About us</a></p>
-            <p><a href="contact.php" style="color: white;">Contact us</a></p>
+<footer style="background:#333; color:#fff; padding:40px 20px; margin-top:40px;">
+    <div style="max-width:1000px; margin:auto;
+                display:flex; flex-wrap:wrap; justify-content:space-around;">
+
+        <!-- about -->
+        <div style="margin-bottom:20px;">
+            <h5>About QuickShop</h5>
+            <p><a href="about.php" style="color:#fff;">About&nbsp;us</a></p>
+            <p><a href="contact.php" style="color:#fff;">Contact&nbsp;us</a></p>
         </div>
-        <div>
-            <h3>Useful Links</h3>
-            <p><a href="order_history.php" style="color: white;">Order History</a></p>
-            <p><a href="manage_profile.php" style="color: white;">Manage Profile</a></p>
-            <p><a href="register.php" style="color: white;">Register</a></p>
-            <p><a href="login.php" style="color: white;">Login</a></p>
+
+        <!-- links -->
+        <div style="margin-bottom:20px;">
+            <h5>Useful&nbsp;Links</h5>
+            <p><a href="order_history.php" style="color:#fff;">Order History</a></p>
+            <p><a href="manage_profile.php" style="color:#fff;">Manage Profile</a></p>
+            <p><a href="register.php" style="color:#fff;">Register</a></p>
+            <p><a href="login.php" style="color:#fff;">Login</a></p>
         </div>
-        <div>
-            <h3>Follow Us</h3>
+
+        <!-- socials -->
+        <div style="margin-bottom:20px;">
+            <h5>Follow&nbsp;Us</h5>
             <p>
-                <a href="#" style="color: white; margin-right: 15px;">
+                <a href="https://www.facebook.com/"  style="color:#fff; margin-right:15px;">
                     <i class="fab fa-facebook-f"></i> Facebook
-                </a>
-                <a href="#" style="color: white; margin-right: 15px;">
+                </a><br>
+                <a href="https://www.instagram.com/" style="color:#fff; margin-right:15px;">
                     <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="#" style="color: white;">
+                </a><br>
+                <a href="https://www.youtube.com/"   style="color:#fff;">
                     <i class="fab fa-youtube"></i> YouTube
                 </a>
             </p>
         </div>
+
     </div>
 </footer>

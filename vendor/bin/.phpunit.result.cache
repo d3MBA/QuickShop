@@ -1,1 +1,1 @@
-{"version":1,"defects":{"UserTest::testUpdateAddress":8},"times":{"UserTest::testRegister":0.003,"UserTest::testUpdateAddress":0.012,"UserTest::testChangePasswordSuccess":0,"UserTest::testChangePasswordFailure":0}}
+{"version":1,"defects":{"UserTest::testUpdateAddress":8,"UserTest::testRegister":7},"times":{"UserTest::testRegister":0.019,"UserTest::testUpdateAddress":0.013,"UserTest::testChangePasswordSuccess":0.002,"UserTest::testChangePasswordFailure":0}}
