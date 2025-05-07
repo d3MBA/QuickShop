@@ -20,8 +20,6 @@ if (isset($_POST['qty'])) {
 }
 
 
-
-
 if (!is_numeric($idRaw) || !is_numeric($qtyRaw)) {
     echo 'Invalid data.';
     exit;

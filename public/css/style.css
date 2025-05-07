@@ -1,4 +1,4 @@
-/*procut list image scaling*/
+/* image cards on product list */
 .card.h-100 {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,6 @@
     padding: 10px;
 }
 
-/*space between card*/
 .card-body {
     flex: 1;
     display: flex;
@@ -18,38 +17,34 @@
     justify-content: space-between;
 }
 
-/*search bar*/
+/* search bar style */
 .search-bar {
     max-width: 600px;
-    margin: 30px auto; /* top-bottom spacing and center */
+    margin: 30px auto;
     padding: 0 15px;
 }
 
-/* Add spacing below search and above cards */
 .row.g-3 {
     margin-top: 30px;
 }
 
-
+/* product page layout */
 .product-page img {
     width: 100%;
     max-width: 300px;
-    height: 300px; /* force consistent height */
+    height: 300px;
     object-fit: contain;
     margin: 0 auto 10px auto;
     display: block;
 }
 
-
 .product-page {
     margin-top: 40px;
-    margin-bottom: 150px; /* increased from 40px to 80px */
+    margin-bottom: 150px;
     display: flex;
     justify-content: center;
 }
 
-
-/* stack vertically on smaller screens */
 @media (max-width: 768px) {
     .product-page {
         flex-direction: column;
@@ -62,11 +57,7 @@
     }
 }
 
-
-
-/*login and register form cont*/
-
-
+/* login and register form */
 .auth-container {
     max-width: 400px;
     margin: 80px auto;
@@ -113,8 +104,7 @@
     font-size: 14px;
 }
 
-
-/* shared style for trolley, orders, checkout etc */
+/* box style for all main pages like cart and orders */
 .page-box {
     max-width: 900px;
     margin: 50px auto;
@@ -130,12 +120,12 @@
     text-align: center;
 }
 
-/* align remove input + button */
+/* align remove input and button in cart */
 form.d-inline-flex {
     align-items: center;
 }
 
-/* align tables */
+/* table heading background */
 .page-box .table th {
     background-color: #f8f9fa;
 }
