@@ -32,11 +32,6 @@ if (isset($_POST['remove_id'])) {
     }
 
 
-    if (!ctype_digit($idRaw) || !ctype_digit($qtyRaw)) {
-        echo 'Invalid data.';
-        exit;
-    }
-
     $pid = (int)$idRaw;
     $qty = (int)$qtyRaw;
 

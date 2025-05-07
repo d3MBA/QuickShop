@@ -3,6 +3,7 @@ session_start();
 
 require_once '../classes/Staff.php';
 require_once '../classes/Order.php';
+require_once '../classes/User.php';
 
 require_once '../template/header.php';
 require_once '../template/nav.php';
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 /* --- list orders --- */
 if (isset($_GET['search'])) {
-    $key = test_input($_GET['search']);
+    $key = sanitize_input($_GET['search']);
 } else {
     $key = '';
 }

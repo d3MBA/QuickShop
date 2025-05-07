@@ -32,7 +32,7 @@ class Product
     }
 
 
-    public function find($id) // find product by id (product details) product.php
+    public function find($id) // find product by id (product details)
     {
         $sql = "SELECT * FROM products WHERE product_id = ?";
 

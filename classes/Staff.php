@@ -7,11 +7,11 @@ class Staff extends User
 {
 
 
-    // list all orders, newest first
+    // list all orders
     public function allOrders()
     {
-
         $sql = "SELECT o.*, c.name FROM orders o JOIN customers c ON o.customer_id = c.customerID ORDER BY o.order_id DESC";
+
         return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 

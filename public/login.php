@@ -13,13 +13,13 @@ $msg = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['email'])) {
-        $email = test_input($_POST['email']);
+        $email = sanitize_input($_POST['email']);
     } else {
         $email = '';
     }
 
     if (isset($_POST['pass'])) {
-            $pass = test_input($_POST['pass']);
+            $pass = sanitize_input($_POST['pass']);
     } else {
         $pass = '';
     }

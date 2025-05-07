@@ -2,7 +2,7 @@
 
 require_once '../src/db.php';
 
-function test_input($data) // sanitize input data
+function sanitize_input($data) // sanitize input data
 {
     $data = trim($data);
     $data = stripslashes($data);

@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="auth-container">
     <h3>Change Password</h3>
 
-    <?php if ($msg) echo '<div class="alert alert-info">' . htmlspecialchars($msg) . '</div>'; ?>
+    <?php if ($msg) echo '<div class="alert alert-info">' .htmlspecialchars($msg). '</div>'; ?>
 
     <form method="post">
         <div class="mb-3">

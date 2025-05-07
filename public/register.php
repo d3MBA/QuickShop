@@ -10,29 +10,29 @@ $msg = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['name'])) {
-        $name = test_input($_POST['name']);
+        $name = sanitize_input($_POST['name']);
     } else {
         $name = '';
     }
     if (isset($_POST['email'])) {
-        $email = test_input($_POST['email']);
+        $email = sanitize_input($_POST['email']);
     } else {
         $email = '';
     }
 
     if (isset($_POST['pass'])) {
-        $pass = test_input($_POST['pass']);
+        $pass = sanitize_input($_POST['pass']);
     } else {
         $pass = '';
     }
 
     if (isset($_POST['confirm'])) {
-        $confirm = test_input($_POST['confirm']);
+        $confirm = sanitize_input($_POST['confirm']);
     } else {
         $confirm = '';
     }
     if (isset($_POST['phone'])) {
-        $phone = test_input($_POST['phone']);
+        $phone = sanitize_input($_POST['phone']);
     } else {
         $phone = '';
     }
