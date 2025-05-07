@@ -25,7 +25,7 @@ if ($loggedIn) {
 
             <?php if ($loggedIn) { ?>
 
-                <?php if (!empty($_SESSION['staff']) && $_SESSION['staff']) { ?>
+                <?php if (!empty($_SESSION['staff']) && $_SESSION['staff']) { // https://www.php.net/manual/en/function.empty.php#:~:text=Description%20%C2%B6&text=Determine%20whether%20a%20variable%20is%20considered%20to%20be%20empty.,the%20variable%20does%20not%20exist. ?>
                     <li class="nav-item"><a class="nav-link" href="staff_panel.php"><i class="fas fa-user-shield"></i> Staff Panel</a></li>
                 <?php } ?>
 

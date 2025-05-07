@@ -1,7 +1,7 @@
 <?php
 class Cart
 {
-    public function __construct()
+    public function __construct() // https://www.w3schools.com/php/php_oop_constructor.asp
     {
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = [];
@@ -24,7 +24,7 @@ class Cart
         }
 
         if ($qty >= $_SESSION['cart'][$id]) {
-            unset($_SESSION['cart'][$id]); // remove item
+            unset($_SESSION['cart'][$id]); //  remove item https://www.php.net/manual/en/function.unset.php
         } else {
             $_SESSION['cart'][$id] -= $qty; // remove qty
         }

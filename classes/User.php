@@ -13,7 +13,7 @@ class User
 {
     protected $db;
 
-    public function __construct()
+    public function __construct() // https://www.w3schools.com/php/php_oop_constructor.asp
     {
         global $conn;
         $this->db = $conn;
@@ -36,10 +36,6 @@ class User
         if ($this->emailExists($email)) {
             return "Email already registered.";
         }
-        if (!preg_match('/[A-Z]/', $pass) || !preg_match('/[0-9]/', $pass)) {
-            return "Password needs 1 capital letter and 1 number.";
-        }
-
 
 
         $sql = "INSERT INTO customers (name, email, password, phone, permission_level) VALUES (?, ?, ?, ?, 0)";
@@ -59,7 +55,7 @@ class User
         if ($row && $row['password'] === $pass) {
             $_SESSION['user_name'] = $row['name'];
             $_SESSION['user_id'] = $row['customerID'];
-            $_SESSION['staff'] = $row['permission_level'] == 1;
+            $_SESSION['staff'] = $row['permission_level'];
             return true;
         }
         return false;
@@ -67,10 +63,6 @@ class User
 
     public function changePassword($old, $new)
     {
-
-        if (!preg_match('/[A-Z]/', $new) || !preg_match('/[0-9]/', $new)) {
-            return "New password needs 1 capital letter and 1 number.";
-        }
 
         $sql = "SELECT password FROM customers WHERE customerID = ?";
         $stmt = $this->db->prepare($sql);

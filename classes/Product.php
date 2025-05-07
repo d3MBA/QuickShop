@@ -5,7 +5,7 @@ class Product
 {
     private $db;
 
-    public function __construct()
+    public function __construct() // https://www.w3schools.com/php/php_oop_constructor.asp
     {
         global $conn;
         $this->db = $conn;
