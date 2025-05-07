@@ -4,9 +4,9 @@ require_once '../src/db.php';
 
 function sanitize_input($data) // sanitize input data
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    return htmlspecialchars($data);
+    $data = trim($data); // https://www.w3schools.com/PHP/func_string_trim.asp
+    $data = stripslashes($data); // https://www.w3schools.com/PHP/func_string_stripslashes.asp
+    return htmlspecialchars($data); // https://www.w3schools.com/PHP/func_string_htmlspecialchars.asp
 }
 
 class User
