@@ -52,30 +52,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Manage Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container mt-5">
 
-<h3>Change Password</h3>
+<div class="auth-container">
+    <h3>Change Password</h3>
 
-<?php
-    if ($msg) {
-        echo '<div class="alert alert-info">' . htmlspecialchars($msg) . '</div>';
-    }
-?>
+    <?php if ($msg) echo '<div class="alert alert-info">' . htmlspecialchars($msg) . '</div>'; ?>
 
-<form method="post" novalidate>
-    <div class="mb-3">
-        <label class="form-label">Old Password</label>
-        <input type="password" name="old_pass" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">New Password</label>
-        <input type="password" name="new_pass" class="form-control" required>
-    </div>
+    <form method="post">
+        <div class="mb-3">
+            <input type="password" name="old_pass" class="form-control" placeholder="Old Password" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="new_pass" class="form-control" placeholder="New Password" required>
+        </div>
 
-    <button class="btn btn-primary">Update Password</button>
-    <a href="index.php" class="btn btn-secondary">Back</a>
-</form>
-
+        <button class="btn btn-primary">Update Password</button>
+        <a href="index.php" class="btn btn-secondary w-100 mt-2">Back</a>
+    </form>
+</div>
 
 
     </body>

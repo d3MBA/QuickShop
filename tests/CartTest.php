@@ -32,7 +32,7 @@ class CartTest extends TestCase
         $items = $cart->items();
         $this->assertEquals(5, $items[1]);
 
-          echo "testAddMoreQuantity passed\n";
+          echo "testAddMoreQuantity passed \n";
     }
 
     public function testRemoveSomeQuantity()
@@ -44,7 +44,7 @@ class CartTest extends TestCase
         $items = $cart->items();
         $this->assertEquals(3, $items[2]);
 
-        echo "testRemoveSomeQuantity passed\n";
+        echo "testRemoveSomeQuantity passed";
     }
 
 

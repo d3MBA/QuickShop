@@ -6,7 +6,7 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 
 $name = $email = $phone = "";
-$msg  = "";
+$msg = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['name'])) {
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if ($msg === "success") {
-        header('Location: login.php');
+        header('Location: login.php?registered=true');
         exit;
     }
 }
@@ -58,39 +58,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="container mt-5">
 
+<div class="auth-container">
+    <h3>Register</h3>
 
-<h3>Register</h3>
+    <?php if ($msg && $msg !== "success") echo "<div class='alert alert-danger'>$msg</div>"; ?>
 
-<?php if ($msg && $msg !== "success") echo "<div class='alert alert-danger'>$msg</div>"; ?>
+    <form method="post">
+        <div class="mb-2">
+            <input class="form-control" name="name" placeholder="Full Name" required value="<?php echo htmlspecialchars($name); ?>">
+        </div>
 
-<form method="post" novalidate>
-    <div class="mb-2">
-        <input class="form-control" name="name" placeholder="Full Name" required value="<?php echo htmlspecialchars($name); ?>">
-    </div>
+        <div class="mb-2">
+            <input class="form-control" name="email" type="email" placeholder="Email" required value="<?php echo htmlspecialchars($email); ?>">
+        </div>
 
-    <div class="mb-2">
-        <input class="form-control" name="email" type="email" placeholder="Email" required value="<?php echo htmlspecialchars($email); ?>">
-    </div>
+        <div class="mb-2">
+            <input class="form-control" name="pass" type="password" placeholder="Password" required>
+        </div>
 
-    <div class="mb-2">
-        <input class="form-control" name="pass" type="password" placeholder="Password" required>
-    </div>
+        <div class="mb-2">
+            <input class="form-control" name="confirm" type="password" placeholder="Confirm Password" required>
+        </div>
+        <div class="mb-2">
+            <input class="form-control" name="phone" type="number" placeholder="Phone" required value="<?php echo htmlspecialchars($phone); ?>">
+        </div>
 
-    <div class="mb-2">
-        <input class="form-control" name="confirm" type="password" placeholder="Confirm Password" required>
-    </div>
-
-
-    <div class="mb-2">
-        <input class="form-control" name="phone" type="number" placeholder="Phone" value="<?php echo htmlspecialchars($phone); ?>">
-    </div>
-
-    <button class="btn btn-success">Register</button>
-    <a href="login.php" class="btn btn-link">Login</a>
-</form>
-
+        <button class="btn btn-success">Register</button>
+        <a href="login.php" class="btn btn-link">Already registered? Log In.</a>
+    </form>
+</div>
 
     </body>
 </html>

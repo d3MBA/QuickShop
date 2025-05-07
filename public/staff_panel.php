@@ -50,7 +50,8 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 ?>
 
-<h3 class="mb-4">Staff – Orders</h3>
+<div class="page-box">
+    <h3 class="mb-4">Staff – Orders</h3>
 
 <form class="input-group mb-3" method="get">
 
@@ -112,7 +113,7 @@ require_once '../template/nav.php';
 <?php if (!$orders) { ?>
     <p>No orders found.</p>
 <?php } ?>
-
+</div>
 
 
 <?php require_once '../template/footer.php'; ?>

@@ -10,7 +10,7 @@ class UserTest extends TestCase
     public function testRegisterSuccess()
     {
         $user = new User();
-        $email = 'student' . rand(1000, 9999) . '@tudublin.ie';
+        $email = 'student'.rand(1, 100).'@tudublin.ie';
 
         $result = $user->register('TU Student', $email,'Pass123', 'Pass123','123456789');
         $this->assertEquals('success', $result);
@@ -32,7 +32,7 @@ class UserTest extends TestCase
         $user = new User();
         $result = $user->register('TU Student', 'student@tudublin.ie','password','password','123456789');
         $this->assertEquals('Password needs 1 capital letter and 1 number.', $result);
-        echo "testRegisterInvalidPassword passed\n";
+        echo "testRegisterInvalidPassword passed ";
     }
 
 
@@ -44,6 +44,6 @@ class UserTest extends TestCase
         $result = $user->login('wronguser@tudublin.ie', 'WrongPass');
 
         $this->assertFalse($result);
-        echo "testLoginFail passed\n";
+        echo "testLoginFail passed ";
     }
 }

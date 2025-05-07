@@ -22,10 +22,13 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 ?>
 
-<form class="input-group mb-4" method="get" action="index.php">
-    <input class="form-control" type="text" name="search" placeholder="Search products…" value="<?php echo htmlspecialchars($searchText); ?>">
-    <button class="btn btn-danger" type="submit">Search</button>
-</form>
+<div class="search-bar">
+    <form class="input-group" method="get" action="index.php">
+        <input class="form-control" type="text" name="search" placeholder="Search products…" value="<?php echo htmlspecialchars($searchText); ?>">
+        <button class="btn btn-danger" type="submit">Search</button>
+    </form>
+</div>
+
 
 <div class="row g-3">
     <?php if ($products) { ?>
@@ -46,12 +49,12 @@ require_once '../template/nav.php';
                             <form method="post" action="add_to_cart.php">
                                 <input type="hidden" name="id" value="<?php echo $p['product_id']; ?>">
                                 <input type="number" name="qty" value="1" min="1" max="<?php echo $p['stock']; ?>" class="form-control mb-2" required>
-                                <button class="btn btn-sm btn-outline-danger" type="submit">Add to Trolley</button>
+                                <button class="btn btn-sm btn-outline-success" type="submit">Add to Trolley</button>
                             </form>
                         <?php } ?>
 
                         <?php if (!isset($_SESSION['user_id'])) { ?>
-                            <a class="btn btn-sm btn-outline-danger" href="login.php">Log in to add to trolley</a>
+                            <a class="btn btn-sm btn-outline-success" href="login.php">Log in to add to trolley</a>
                         <?php } ?>
                     </div>
 

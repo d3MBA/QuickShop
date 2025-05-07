@@ -22,12 +22,11 @@ require_once '../template/header.php';
 
 if (!$item) {
     echo 'Product not found.';
-    require_once '../template/footer.php';
     exit;
 }
 ?>
 
-<div class="row">
+<div class="row product-page align-items-center gx-2">
 
     <div class="col-md-6 text-center">
         <img class="img-fluid mb-4" src="/images/products/<?php echo strtolower($item['name']); ?>.png"  alt="<?php echo htmlspecialchars($item['name']); ?>">

@@ -9,9 +9,9 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 
 
-$cartObj    = new Cart();
+$cartObj = new Cart();
 $productObj = new Product();
-$orderObj   = new Order();
+$orderObj = new Order();
 
 $cart = $cartObj->items();
 if (!$cart) {
@@ -24,10 +24,10 @@ foreach ($cart as $pid => $qty) {
     $p = $productObj->find($pid);
     if ($p) {
         $items[] = [
-            'id'    => $pid,
-            'qty'   => $qty,
+            'id' => $pid,
+            'qty'=> $qty,
             'price' => $p['price'],
-            'name'  => $p['name']
+            'name'=> $p['name']
         ];
     }
 }
@@ -86,48 +86,52 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 ?>
 
-<h3 class="mb-4">Checkout</h3>
+<div class="page-box">
+    <h3 class="mb-4">Checkout</h3>
 
-<?php
-if ($errors) {
-    echo '<div class="alert alert-danger"><ul>';
-    foreach ($errors as $e) {
-        echo '<li>' . htmlspecialchars($e) . '</li>';
+    <?php
+    if ($errors) {
+        echo '<div class="alert alert-danger"><ul>';
+        foreach ($errors as $e) {
+            echo '<li>' . htmlspecialchars($e) . '</li>';
+        }
+        echo '</ul></div>';
     }
-    echo '</ul></div>';
-}
-?>
+    ?>
 
-<form method="post">
-    <div class="mb-3">
-        <label class="form-label">Delivery Address</label>
-        <textarea name="address" class="form-control" required><?php echo htmlspecialchars($_POST['address'] ?? ''); ?></textarea>
-    </div>
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Delivery Address</label>
+            <textarea name="address" class="form-control" required><?php echo htmlspecialchars($_POST['address'] ?? ''); ?></textarea>
+        </div>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Delivery Date</label>
-            <input type="date" name="del_date" class="form-control" required value="<?php echo htmlspecialchars($_POST['del_date'] ?? ''); ?>">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Delivery Date</label>
+                <input type="date" name="del_date" class="form-control" required value="<?php echo htmlspecialchars($_POST['del_date'] ?? ''); ?>">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Delivery Time</label>
+                <input type="time" name="del_time" class="form-control" required value="<?php echo htmlspecialchars($_POST['del_time'] ?? ''); ?>">
+            </div>
         </div>
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Delivery Time</label>
-            <input type="time" name="del_time" class="form-control" required value="<?php echo htmlspecialchars($_POST['del_time'] ?? ''); ?>">
-        </div>
-    </div>
 
-    <div class="mb-3">
-        <label class="form-label d-block">Payment Method</label>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="payment" value="card" required <?php if (($_POST['payment'] ?? '') === 'card') echo 'checked'; ?>>
-            <label class="form-check-label">Card</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="payment" value="cash" required <?php if (($_POST['payment'] ?? '') === 'cash') echo 'checked'; ?>>
-            <label class="form-check-label">Cash</label>
-        </div>
-    </div>
+        <div class="mb-3">
 
-    <button class="btn btn-success">Complete Order</button>
-</form>
+            <label class="form-label d-block">Payment Method</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" value="card" required <?php if (($_POST['payment'] ?? '') === 'card') echo 'checked'; ?>>
+                <label class="form-check-label">Card</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" value="cash" required <?php if (($_POST['payment'] ?? '') === 'cash') echo 'checked'; ?>>
+                <label class="form-check-label">Cash</label>
+            </div>
+
+        </div>
+
+        <button class="btn btn-success">Complete Order</button>
+    </form>
+</div>
 
 <?php require_once '../template/footer.php'; ?>

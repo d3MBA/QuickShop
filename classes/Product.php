@@ -27,7 +27,7 @@ class Product
 
 
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['%' . $txt . '%']);
+        $stmt->execute(['%'.$txt.'%']);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -65,13 +65,14 @@ if (isset($_POST['remove_id'])) {
 }
 
 $cartItems = $cartObj->items();
-$total     = 0;
+$total = 0; // total price
 
 require_once '../template/header.php';
 require_once '../template/nav.php';
 ?>
 
-<h3 class="mb-4">Your Trolley</h3>
+<div class="page-box">
+    <h3>Your Trolley</h3>
 
 <?php
 if ($cartItems) {
@@ -100,8 +101,8 @@ if ($cartItems) {
                 continue;
             }
 
-            $sub = $prod['price'] * $qty;
-            $total += $sub;
+            $sub = $prod['price'] * $qty; // subtotal
+            $total += $sub; // total price
             ?>
 
             <tr>
@@ -140,8 +141,12 @@ if ($cartItems) {
     ?> <p>Your trolley is empty.</p> <?php
 }
 
-require_once '../template/footer.php';
-
-
 ?>
+</div>
+
+<?php
+require_once '../template/footer.php';
+?>
+
+
 

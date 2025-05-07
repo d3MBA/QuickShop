@@ -15,7 +15,8 @@ require_once '../template/header.php';
 require_once '../template/nav.php';
 ?>
 
-<h3 class="mb-4">My Orders</h3>
+<div class="page-box">
+    <h3 class="mb-4">Orders</h3>
 
 <?php if ($orders) { ?>
 
@@ -50,6 +51,7 @@ require_once '../template/nav.php';
     <p>You have no orders yet.</p>
 <?php }
 ?>
+</div>
 
 
 

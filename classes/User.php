@@ -72,7 +72,7 @@ class User
             return "New password needs 1 capital letter and 1 number.";
         }
 
-        $sql  = "SELECT password FROM customers WHERE customerID = ?";
+        $sql = "SELECT password FROM customers WHERE customerID = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$_SESSION['user_id']]);
         $row  = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -82,7 +82,7 @@ class User
         }
 
         // update password
-        $sql  = "UPDATE customers SET password = ? WHERE customerID = ?";
+        $sql = "UPDATE customers SET password = ? WHERE customerID = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$new, $_SESSION['user_id']]);
 

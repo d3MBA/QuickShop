@@ -5,8 +5,10 @@ require_once '../classes/User.php';
 require_once '../template/header.php';
 require_once '../template/nav.php';
 
+
 $email = $pass = "";
-$msg   = "";
+$msg = "";
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -21,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $pass = '';
     }
-
 
 
     $user = new User();
@@ -40,22 +41,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container mt-5">
 
-<h3>Login</h3>
 
-<?php if ($msg) echo "<div class='alert alert-danger'>$msg</div>"; ?>
+<div class="auth-container">
+    <h3>Login</h3>
 
-<form method="post" novalidate>
+    <?php
+    if (isset($_GET['registered']) && $_GET['registered'] == true) {
+        echo "<div class='alert alert-success'>Registration successful! Please log in.</div>";
+    }
+    ?>
 
-    <div class="mb-3"><input class="form-control" name="email" type="email" placeholder="Email" required value="<?php echo $email; ?>"></div>
-    <div class="mb-3"><input class="form-control" name="pass"  type="password" placeholder="Password" required></div>
-    <button class="btn btn-primary">Login</button>
-    <a href="register.php" class="btn btn-link">Register</a>
 
-</form>
+    <?php if ($msg) echo "<div class='alert alert-danger'>$msg</div>"; ?>
+
+    <form method="post">
+        <div class="mb-3">
+            <input class="form-control" name="email" type="email" placeholder="Email" required value="<?php echo $email; ?>">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="pass"  type="password" placeholder="Password" required>
+        </div>
+        <button class="btn btn-primary">Login</button>
+        <a href="register.php" class="btn btn-link">No account yet? Register.</a>
+
+    </form>
+</div>
 
 </body>
 </html>
+
+
 
 <?php require_once '../template/footer.php'; ?>
